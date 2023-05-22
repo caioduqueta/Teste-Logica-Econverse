@@ -14,5 +14,21 @@ const products = [
 ]
 
 module.exports = () => {
-	// Seu código vai aqui!
+  const productsInOrder = {}
+
+  for (let i = 0; i < products.length; i++) {
+    const item = products[i]
+    const [color, size] = item.split('-')
+
+    if (!productsInOrder[color]) {
+      productsInOrder[color] = {}
+    }
+
+    if (!productsInOrder[color][size]) {
+      productsInOrder[color][size] = 1
+    } else {
+      productsInOrder[color][size]++
+    }
+  }
+   return productsInOrder
 }
